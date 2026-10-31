@@ -20,4 +20,5 @@ export default defineConfig({
     plugins: []
   })
 ],
+base: '/D-laundry/',
 })
