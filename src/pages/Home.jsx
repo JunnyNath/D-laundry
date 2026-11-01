@@ -6,6 +6,7 @@ import dryCleanImage from "../assets/images/Dry cleaning near me.jfif"
 import delivery from "../assets/images/download (12).jfif"
 import { FaWhatsapp } from "react-icons/fa"
 import { FaArrowRight } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 //  Servicescard data for our Services SECTION 
 const services = [
@@ -104,10 +105,10 @@ function Home() {
 
                         <div className="mt-8 sm:mt-12 flex flex-col gap-3 sm:gap-4 sm:flex-row">
 
-                            <a href="/Services" className="rounded-full bg-blue-900 px-7 py-4 text-center font-medium text-white transition
+                            <Link to="/Services" className="rounded-full bg-blue-900 px-7 py-4 text-center font-medium text-white transition
                             text-[15px] sm:text-[17px] hover:bg-blue-700 font-maven">
                                 Explore Services
-                            </a>
+                            </Link>
 
                             <a href="https://wa.me/2347012772979" target="blank" rel="noreferrer" className="rounded-full border border-blue-300 
                             text-[15px] sm:text-[17px] bg-white px-7 py-4 text-center font-medium text-blue-900 transition hover:bg-blue-100 font-maven">
