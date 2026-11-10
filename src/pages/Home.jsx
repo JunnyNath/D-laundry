@@ -7,6 +7,9 @@ import delivery from "../assets/images/download (12).jfif"
 import { FaWhatsapp } from "react-icons/fa"
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/all"
 
 //  Servicescard data for our Services SECTION 
 const services = [
@@ -85,8 +88,104 @@ const benefits = [
 
 ]
 
-
 function Home() {
+    // Using gsap.text plugin to animate the text in the hero section
+
+
+    useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger)
+
+        gsap.to("#service-text", {
+            scrollTrigger: {
+                trigger: "#service-scroll",
+                start: "top center",
+                end: "center bottom",
+                toggleActions: "play pause play pause"
+            },
+            opacity: 1,
+            y: 0,
+            ease: "power1.in0ut"
+        })
+        // H1 design
+        gsap.to("#service-topic", {
+            scrollTrigger: {
+                trigger: "#service-scroll",
+                start: "top center",
+                end: "center bottom",
+                toggleActions: "play pause play pause"
+            },
+            opacity: 1,
+            y: 0,
+            delay: 0.5,
+            ease: "power1.inOut"
+        })
+        // paragraph design
+        gsap.to("#service-para", {
+            scrollTrigger: {
+                trigger : "#service-scroll",
+                start: "top center",
+                end: "center bottom",
+                toggleActions: "play pause play pause"
+            },
+            opacity: 1,
+            y: 0,
+            delay: 1,
+            ease: "power1.inOut"
+        })
+        gsap.to("#service-animation", {
+            scrollTrigger: {
+                trigger: "#service-scroll",
+                start: "top center",
+                end: "center bottom",
+                toggleActions: "play pause play pause"
+            },
+            
+                opacity: 1,
+                y: 0,
+                delay: 1.2,
+                ease: "power1.inOut"
+
+        })
+
+        gsap.to("#how-para", {
+          scrollTrigger: {
+            trigger: "#how-container",
+            start: "top center",
+            end: "center bottom",
+            toggleActions: "play pause play pause"
+        },
+        opacity: 1,
+        x: 0,
+        ease: "bounce.out",
+        })
+
+        gsap.to("#how-topic", {
+            scrollTrigger: {
+                trigger: "#how-container",
+                start: "top center",
+                end: "center bottom",
+                toggleActions: "play pause play pause"
+            },
+            opacity: 1,
+            x: 0,
+            ease: "bounce.out",
+            delay: 0.5
+        })
+
+        gsap.to("#how-para1", {
+            scrollTrigger : {
+                trigger: "#how-container",
+                start: "top center",
+                end: "center bottom",
+                toggleActions: "play pause play pause"
+            },
+            opacity: 1,
+            x: 0,
+            ease: "bounce.out",
+            delay: 1
+        })
+    }, [])
+     
     return (
         <>
             <main className="text-blue-900">
@@ -97,7 +196,7 @@ function Home() {
                     <div className="mx-auto max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16 ">
 
                         <p className="mt-5 text-xs sm:text-sm font-semibold  uppercase tracking-[0.2em] text-white font-madimi">Professional Laundry Care</p>
-                        <h1 className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-8xl font-maven">Fresh Clothes.
+                        <h1 id="hero-text" className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-8xl font-maven">Fresh Clothes.
                             <br />
                             <span className="text-blue-400 font-semibold">More time for you</span>
                         </h1>
@@ -118,24 +217,24 @@ function Home() {
                     </div>
                 </section>
                 {/* SERVICES */}
-                <section className="bg-white px-6 py-20 sm:py-32">
+                <section id="service-scroll" className="bg-white px-6 py-20 sm:py-32 ">
                     <div className="mx-auto max-w-6xl">
                         {/* Section Heading */}
                         <div className="max-w-2xl">
-                            <p className=" text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-blue-500 font-madimi">Our Services</p>
+                            <p id="service-text" className=" text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-blue-500 font-madimi opacity-0 translate-y-10">Our Services</p>
 
-                            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl font-maven">
+                            <h2 id="service-topic" className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl font-maven opacity-0 translate-y-10">
                                 Everything your clothes need.
                             </h2>
 
-                            <p className="mt-5 text-md sm:text-lg leading-8 text-blue-600 font-maven">
+                            <p id="service-para" className="mt-5 text-md sm:text-lg leading-8 text-blue-600 font-maven opacity-0 translate-y-10">
                                 From everyday washing to delicate garment care, we make laundry simple.
                             </p>
 
                         </div>
 
                         {/* Service card */}
-                        <div className="mt-12 grid gap-6 md:grid-cols-2">
+                        <div id="service-animation" className="mt-12 grid gap-6 md:grid-cols-2 opacity-0 translate-y-10 ">
                             {services.map((service) => (
                                 <ServiceCard
                                     key={service.title}
@@ -175,18 +274,19 @@ function Home() {
                 </section>
 
                 {/* How it works  */}
-                <section className="bg-blue-900 px-6 py-24 text-white sm:py-32">
+                <section id="how-container" className="bg-blue-900 px-6 py-24 text-white sm:py-32">
                     <div className="mx-auto max-w-6xl">
                         <div className="max-w-2xl">
-                            <p className=" text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-blue-400 font-madimi">
+                            <p id="how-para" className=" text-xs sm:text-sm font-medium uppercase tracking-[0.2em] text-blue-400 font-madimi opacity-0 translate-x-50">
                                 How It Works
                             </p>
 
-                            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl font-maven">
+                            <h2 id="how-topic" className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl font-maven opacity-0 translate-x-50">
                                 Laundry day, made simple.
                             </h2>
 
-                            <p className="mt-5 text-md sm:text-lg leading-8 text-blue-400 font-maven">
+                            <p id="how-para1" className="mt-5 text-md sm:text-lg leading-8 text-blue-400 font-maven opacity-0
+                            translate-x-50">
                                 From your first message to the moment your clothes return fresh, we keep everything simple.
                             </p>
                         </div>
@@ -196,15 +296,15 @@ function Home() {
                         <div className="mt-16 grid gap-12 md:grid-cols-3">
 
                             {steps.map((step) => (
-                              <div key={step.number}>
+                                <div key={step.number}>
 
-                                <span className="text-sm font-medium text-blue-500 font-maven">{step.number}</span>
-{/* text-[20px] sm:text-2xl */}
-                                <h3 className="mt-5 text-[20px] sm:text-2xl font-semibold font-maven">{step.title}</h3>
+                                    <span className="text-sm font-medium text-blue-500 font-maven">{step.number}</span>
+                                    {/* text-[20px] sm:text-2xl */}
+                                    <h3 className="mt-5 text-[20px] sm:text-2xl font-semibold font-maven">{step.title}</h3>
 
-                                <p className="mt-4 max-w-sm leading-7 text-blue-400 font-maven">{step.description}</p>
+                                    <p className="mt-4 max-w-sm leading-7 text-blue-400 font-maven">{step.description}</p>
 
-                              </div>
+                                </div>
                             ))}
 
                         </div>
@@ -226,9 +326,9 @@ function Home() {
 
                                 <p className="mt-6 max-w-md text-md
                                 sm:text-lg leading-8 text-blue-600 font-maven">
-                                    Your clothes deserve more than a quick wash. We combine professional care with a convenient experience.  
+                                    Your clothes deserve more than a quick wash. We combine professional care with a convenient experience.
                                 </p>
-                                
+
                             </div>
 
                             {/* Right side */}
@@ -269,15 +369,15 @@ function Home() {
                                     </p>
                                 </div>
                                 {/* WHATSAPP BUTTON */}
-                                <a href="https://wa.me/2347012772979" 
-                                target="_blank"
-                                rel="noreferer"
-                                className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 font-medium text-blue-900 transition hover:bg-blue-100">
-                                    <FaWhatsapp className="text-2xl"/>
+                                <a href="https://wa.me/2347012772979"
+                                    target="_blank"
+                                    rel="noreferer"
+                                    className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 font-medium text-blue-900 transition hover:bg-blue-100">
+                                    <FaWhatsapp className="text-2xl" />
 
                                     chat with us
 
-                                    <span><FaArrowRight/></span>
+                                    <span><FaArrowRight /></span>
                                 </a>
                             </div>
                         </div>
