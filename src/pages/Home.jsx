@@ -192,17 +192,17 @@ function Home() {
                 <div className="relative">
                     <img src={washMachine} alt="Wash Machine" className="hero-image w-full h-115 sm:h-200 brightness-70" />
                 </div>
-                <section className="px-8 py-3 sm:py-2 absolute top-33 sm:top-55 sm:left-20 ">
+                <section className="px-8 py-2 sm:py-2 absolute top-33 sm:top-55 sm:left-20 ">
                     <div className="mx-auto max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16 ">
 
-                        <p className="mt-5 text-xs sm:text-sm font-semibold  uppercase tracking-[0.2em] text-white font-madimi">Professional Laundry Care</p>
-                        <h1 id="hero-text" className="max-w-5xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-8xl font-maven">Fresh Clothes.
+                        <p className="mt-5 text-[11px] sm:text-sm font-semibold  uppercase tracking-[0.2em] text-white font-madimi">Professional Laundry Care</p>
+                        <h1 id="hero-text" className="max-w-5xl text-4xl font-bold tracking-tight sm:text-6xl lg:text-8xl font-maven">Fresh Clothes.
                             <br />
                             <span className="text-blue-400 font-semibold">More time for you</span>
                         </h1>
-                        <p className="mt-3 sm:mt-8 max-w-xl text-md sm:text-lg leading-6 font-semibold text-white font-maven">Professional laundry care that takes the work off your hands. We wash, care for and return your clothes fresh and ready to wear. </p>
+                        <p className="mt-3 sm:mt-8 max-w-xl text-[15px] sm:text-lg leading-5 font-semibold text-white font-maven">Professional laundry care that takes the work off your hands. We wash, care for and return your clothes fresh and ready to wear. </p>
 
-                        <div className="mt-8 sm:mt-12 flex flex-col gap-3 sm:gap-4 sm:flex-row">
+                        <div className="mt-6 sm:mt-12 flex flex-col gap-2 sm:gap-4 sm:flex-row">
 
                             <Link to="/Services" className="rounded-full bg-blue-900 px-7 py-4 text-center font-medium text-white transition
                             text-[15px] sm:text-[17px] hover:bg-blue-700 font-maven">
